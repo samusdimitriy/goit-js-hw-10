@@ -21,7 +21,9 @@ function onSearch(e) {
   refs.countryList.innerHTML = '';
   refs.countryInfo.innerHTML = '';
 
-  if (searchQuery.trim() === '' || !/^[a-zA-Z]*$/.test(searchQuery)) {
+  if (searchQuery.trim() === '') {
+    return;
+  } else if (!/^[a-zA-Z]*$/.test(searchQuery)) {
     Notiflix.Notify.failure('Please enter a valid country name.');
     return;
   }
